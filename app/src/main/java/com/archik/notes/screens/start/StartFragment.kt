@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.archik.notes.R
 import com.archik.notes.databinding.FragmentStartBinding
+import com.archik.notes.utilits.APP_ACTIVITY
 import com.archik.notes.utilits.TYPE_ROOM
 
 class StartFragment : Fragment() {
@@ -38,7 +40,9 @@ class StartFragment : Fragment() {
 
     with(binding) {
       btnRoom.setOnClickListener {
-        viewModel.initDatabase(TYPE_ROOM)
+        viewModel.initDatabase(TYPE_ROOM) {
+          APP_ACTIVITY.mNavController.navigate(R.id.action_startFragment_to_mainFragment)
+        }
       }
     }
   }

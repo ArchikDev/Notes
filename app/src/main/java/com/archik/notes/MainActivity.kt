@@ -11,7 +11,7 @@ import com.archik.notes.utilits.APP_ACTIVITY
 class MainActivity : AppCompatActivity() {
 
   private lateinit var mToolbar: Toolbar
-  private lateinit var mNavController: NavController
+  lateinit var mNavController: NavController
 
   private var _binding: ActivityMainBinding? = null
   private val binding: ActivityMainBinding

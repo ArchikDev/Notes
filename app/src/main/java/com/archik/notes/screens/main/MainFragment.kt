@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.archik.notes.R
 import com.archik.notes.databinding.FragmentMainBinding
-import com.archik.notes.screens.start.StartFragmentViewModel
 import com.archik.notes.utilits.APP_ACTIVITY
 
 class MainFragment : Fragment() {

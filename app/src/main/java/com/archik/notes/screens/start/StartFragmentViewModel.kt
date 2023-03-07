@@ -22,6 +22,5 @@ class StartFragmentViewModel(application: Application): AndroidViewModel(applica
         onSuccess()
       }
     }
-
   }
 }

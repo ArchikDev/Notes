@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.archik.notes.screens.NoteFragment"
+        android:name="com.archik.notes.screens.note.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" >
         <action

@@ -21,6 +21,20 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainHolder>() {
     val textNote = view.findViewById<TextView>(R.id.item_note_text)
   }
 
+  // Когда виден holder на экране(item)
+  override fun onViewAttachedToWindow(holder: MainHolder) {
+    super.onViewAttachedToWindow(holder)
+
+    holder.itemView.setOnClickListener {
+      MainFragment.click(listNotes[holder.adapterPosition])
+    }
+  }
+
+  override fun onViewDetachedFromWindow(holder: MainHolder) {
+    super.onViewDetachedFromWindow(holder)
+    holder.itemView.setOnClickListener(null)
+  }
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
     // LayoutInflater - из макета создаёт view
     val view = LayoutInflater.from(parent.context).inflate(

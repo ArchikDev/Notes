@@ -11,7 +11,7 @@ import com.archik.notes.utilits.APP_ACTIVITY
 class MainActivity : AppCompatActivity() {
 
   private lateinit var mToolbar: Toolbar
-  lateinit var mNavController: NavController
+  lateinit var navController: NavController
 
   private var _binding: ActivityMainBinding? = null
   private val binding: ActivityMainBinding
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     mToolbar = binding.toolbar
 
-    mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+    navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
     setSupportActionBar(mToolbar)
 

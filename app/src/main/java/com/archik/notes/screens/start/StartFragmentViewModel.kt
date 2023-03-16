@@ -5,7 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import com.archik.notes.database.room.AppRoomDatabase
 import com.archik.notes.database.room.AppRoomRepository
 import com.archik.notes.utilits.REPOSITORY
+import com.archik.notes.utilits.TYPE_FIREBASE
 import com.archik.notes.utilits.TYPE_ROOM
+import com.archik.notes.utilits.showToast
 
 class StartFragmentViewModel(application: Application): AndroidViewModel(application) {
   private val context = application
@@ -20,6 +22,10 @@ class StartFragmentViewModel(application: Application): AndroidViewModel(applica
         REPOSITORY = AppRoomRepository(dao)
 
         onSuccess()
+      }
+
+      TYPE_FIREBASE -> {
+        showToast(TYPE_FIREBASE)
       }
     }
   }

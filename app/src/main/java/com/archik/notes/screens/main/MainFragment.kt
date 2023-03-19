@@ -1,9 +1,7 @@
 package com.archik.notes.screens.main
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +10,7 @@ import com.archik.notes.R
 import com.archik.notes.databinding.FragmentMainBinding
 import com.archik.notes.models.AppNote
 import com.archik.notes.utilits.APP_ACTIVITY
+import com.archik.notes.utilits.AppPreference
 
 class MainFragment : Fragment() {
 
@@ -42,6 +41,8 @@ class MainFragment : Fragment() {
   }
 
   private fun initialization() {
+    setHasOptionsMenu(true)
+
     adapter = MainAdapter()
 
     recyclerView = binding.recycleView
@@ -59,6 +60,24 @@ class MainFragment : Fragment() {
     binding.btnAddNote.setOnClickListener {
       APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_addNewNoteFragment)
     }
+  }
+
+  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    super.onCreateOptionsMenu(menu, inflater)
+
+    inflater.inflate(R.menu.exit_action_menu, menu)
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    when(item.itemId) {
+      R.id.btn_exit -> {
+        viewModel.signOut()
+        AppPreference.setInitUser(false)
+        APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_startFragment)
+      }
+    }
+
+    return super.onOptionsItemSelected(item)
   }
 
   override fun onDestroyView() {

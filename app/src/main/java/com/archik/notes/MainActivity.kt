@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.archik.notes.databinding.ActivityMainBinding
 import com.archik.notes.utilits.APP_ACTIVITY
+import com.archik.notes.utilits.AppPreference
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     setSupportActionBar(mToolbar)
 
     title = getString(R.string.title)
+
+    AppPreference.getPrefderence(this)
   }
 
   override fun onDestroy() {

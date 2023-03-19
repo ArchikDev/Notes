@@ -2,6 +2,7 @@ package com.archik.notes.screens.start
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import com.archik.notes.database.firebase.AppFirebaseRepository
 import com.archik.notes.database.room.AppRoomDatabase
 import com.archik.notes.database.room.AppRoomRepository
 import com.archik.notes.utilits.REPOSITORY
@@ -25,7 +26,8 @@ class StartFragmentViewModel(application: Application): AndroidViewModel(applica
       }
 
       TYPE_FIREBASE -> {
-        showToast(TYPE_FIREBASE)
+        REPOSITORY = AppFirebaseRepository()
+        REPOSITORY.connectToDatabase({ onSuccess() },{ showToast(it) })
       }
     }
   }
